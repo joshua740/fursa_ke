@@ -1,0 +1,46 @@
+---
+layout: base.njk
+title: Latest Opportunities
+---
+
+<h1>Latest Opportunities</h1>
+
+<div class="opportunities-grid">
+{% for post in collections.all | reverse %}
+    {% if post.data.category in ['job', 'internship', 'scholarship'] %}
+    <article class="opportunity-card">
+        <div class="opportunity-meta">
+            <span class="category {{ post.data.category }}">{{ post.data.category | title }}</span>
+            <time datetime="{{ post.date | dateFormat }}">{{ post.date | smartTime }}</time>
+        </div>
+        
+        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        
+        <div class="opportunity-details">
+            {% if post.data.company %}
+            <span class="company">{{ post.data.company }}</span>
+            {% endif %}
+            {% if post.data.location %}
+            <span class="location">{{ post.data.location }}</span>
+            {% endif %}
+        </div>
+
+        <div class="opportunity-preview">
+            {{ post.data.description }}
+        </div>
+
+        {% if post.data.isNew %}
+            <span class="badge new">NEW</span>
+        {% endif %}
+
+        <a href="{{ post.url }}" class="read-more">View Details</a>
+    </article>
+    {% endif %}
+{% endfor %}
+
+{% if collections.all.length === 0 %}
+<div class="no-opportunities">
+    <p>No opportunities available at the moment. Please check back later.</p>
+</div>
+{% endif %}
+</div> 

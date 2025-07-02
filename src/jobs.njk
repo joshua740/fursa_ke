@@ -1,0 +1,65 @@
+---
+layout: base.njk
+title: Jobs
+---
+
+<div class="jobs-page">
+    <div class="page-header">
+        <h1>Latest Jobs</h1>
+    </div>
+
+    <div class="opportunities-grid" id="jobsList">
+        {% for post in collections.jobs %}
+            <article class="opportunity-card" data-category="{{ post.data.jobCategory | default('other') }}">
+                <div class="opportunity-meta">
+                    <span class="category job">Job</span>
+                    <time datetime="{{ post.date | dateFormat }}">{{ post.date | smartTime }}</time>
+                </div>
+                
+                <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+                
+                <div class="opportunity-details">
+                    {% if post.data.company %}
+                    <span class="company">{{ post.data.company }}</span>
+                    {% endif %}
+                    {% if post.data.location %}
+                    <span class="location">{{ post.data.location }}</span>
+                    {% endif %}
+                    {% if post.data.type %}
+                    <span class="job-type">{{ post.data.type }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="opportunity-preview">
+                    {{ post.data.description }}
+                </div>
+
+                {% if post.data.isNew %}
+                    <span class="badge new">NEW</span>
+                {% endif %}
+
+                {% if post.data.deadline %}
+                <div class="deadline">
+                    Deadline: {{ post.data.deadline }}
+                </div>
+                {% endif %}
+
+                <a href="{{ post.url }}" class="read-more">View Details</a>
+            </article>
+        {% endfor %}
+
+        {% if collections.jobs.length === 0 %}
+        <div class="no-opportunities">
+            <p>No job listings available at the moment. Please check back later or subscribe to our updates.</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="jobs-footer">
+        <div class="post-job">
+            <h2>Have a Job to Post?</h2>
+            <p>If you're an employer looking to reach qualified candidates, contact us to feature your job listing.</p>
+            <a href="/contact/" class="button">Contact Us</a>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,24 @@
+{
+  "name": "fursa-ke",
+  "version": "1.0.0",
+  "description": "Jobs, Internships, Scholarships & Government Opportunities for Young Kenyans",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "debug": "DEBUG=* eleventy"
+  },
+  "keywords": [
+    "jobs",
+    "internships",
+    "scholarships",
+    "kenya",
+    "opportunities"
+  ],
+  "author": "Fursa KE",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "luxon": "^3.4.4"
+  }
+} 
