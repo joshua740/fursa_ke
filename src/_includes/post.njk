@@ -1,0 +1,80 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<article class="post">
+    <header class="post-header">
+        <div class="post-meta">
+            <span class="category {{ category }}">{{ category | title }}</span>
+            {% if isNew %}
+                <span class="badge new">NEW</span>
+            {% endif %}
+            <time datetime="{{ date | date('YYYY-MM-DD') }}">{{ date | date }}</time>
+        </div>
+        
+        <h1 class="post-title">{{ title }}</h1>
+        
+        <div class="post-details">
+            {% if company %}
+            <div class="detail">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>{{ company }}</span>
+            </div>
+            {% endif %}
+            
+            {% if location %}
+            <div class="detail">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>{{ location }}</span>
+            </div>
+            {% endif %}
+            
+            {% if type %}
+            <div class="detail">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                <span>{{ type }}</span>
+            </div>
+            {% endif %}
+            
+            {% if deadline %}
+            <div class="detail deadline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Deadline: {{ deadline }}</span>
+            </div>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="post-description">
+        {{ description }}
+    </div>
+
+    <div class="post-content">
+        {{ content | safe }}
+    </div>
+
+    {% if link %}
+    <div class="post-cta">
+        <a href="{{ link }}" class="apply-button" target="_blank" rel="noopener noreferrer">
+            Apply Now
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+        </a>
+    </div>
+    {% endif %}
+</article>
+{% endblock %} 

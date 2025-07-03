@@ -1,15 +1,16 @@
 ---
-title: Data Science Intern at Microsoft ADC
-date: 2024-03-22
+title: Data Science Intern at Microsoft
+date: 2024-03-19
 category: internship
-company: Microsoft Africa Development Center
+company: Microsoft
 location: Nairobi, Kenya
 type: Internship (6 months)
-deadline: April 30, 2024
+deadline: April 10, 2024
 isNew: true
 views: 120
-description: Exciting internship opportunity for Data Science students to work with Microsoft's Africa Development Center in Nairobi.
-link: https://careers.microsoft.com/adc/internships
+description: Join Microsoft's Data Science team as an intern and work on cutting-edge AI/ML projects while gaining valuable industry experience.
+link: https://careers.microsoft.com/students/
+layout: post.njk
 ---
 
 # Data Science Intern at Microsoft ADC

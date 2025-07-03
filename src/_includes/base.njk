@@ -82,7 +82,9 @@
     <main class="site-main">
         <div class="container">
             <div class="content">
+                {% block content %}
                 {{ content | safe }}
+                {% endblock %}
             </div>
 
             <aside class="sidebar">

@@ -2,10 +2,15 @@
 title: Software Developer at Safaricom
 date: 2024-03-20
 category: job
+company: Safaricom
+location: Nairobi, Kenya
+type: Full-time
+deadline: April 15, 2024
 isNew: true
 views: 150
 description: Exciting opportunity for a Software Developer to join Safaricom's Digital Services team. Build innovative solutions that serve millions of Kenyans.
 link: https://careers.safaricom.co.ke/job/software-developer
+layout: post.njk
 ---
 
 # Software Developer at Safaricom

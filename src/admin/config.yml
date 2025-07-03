@@ -13,10 +13,14 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Category", name: "category", widget: "select", options: ["job", "internship", "scholarship"]}
-      - {label: "Is New", name: "isNew", widget: "boolean", default: true}
-      - {label: "Views", name: "views", widget: "number", default: 0}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "External Link", name: "link", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"} 
+      - {label: "Company", name: "company", widget: "string", required: false}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Type", name: "type", widget: "string", required: false}
+      - {label: "Deadline", name: "deadline", widget: "string", required: false}
+      - {label: "Link", name: "link", widget: "string", required: false}
+      - {label: "Mark as New?", name: "isNew", widget: "boolean", default: true}
+      - {label: "Short Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post.njk"} 

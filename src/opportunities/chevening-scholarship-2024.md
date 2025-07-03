@@ -10,6 +10,7 @@ isNew: true
 views: 200
 description: Fully-funded scholarships for outstanding Kenyan professionals to pursue a one-year master's degree at any UK university.
 link: https://www.chevening.org/scholarship/kenya/
+layout: post.njk
 ---
 
 # Chevening Scholarships 2024/25 for Kenyan Students
