@@ -1,5 +1,4 @@
 const { DateTime } = require("luxon");
-const moment = require("moment");
 
 module.exports = function(eleventyConfig) {
   // Copy static assets
@@ -9,19 +8,33 @@ module.exports = function(eleventyConfig) {
 
   // Date formatting filter
   eleventyConfig.addFilter("dateFormat", function(date) {
-    return DateTime.fromJSDate(date).toFormat("dd LLL yyyy");
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
   });
 
   // Smart time filter - relative time for < 24h, formatted date otherwise
   eleventyConfig.addFilter("smartTime", function(date) {
-    const now = moment();
-    const postDate = moment(date);
-    const hoursDiff = now.diff(postDate, 'hours');
+    const now = new Date();
+    const postDate = new Date(date);
+    const hoursDiff = Math.floor((now - postDate) / (1000 * 60 * 60));
 
     if (hoursDiff < 24) {
-      return postDate.fromNow();
+      // Relative time formatting
+      if (hoursDiff < 1) {
+        const minutes = Math.floor((now - postDate) / (1000 * 60));
+        return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
+      } else {
+        return `${hoursDiff} hour${hoursDiff !== 1 ? 's' : ''} ago`;
+      }
     } else {
-      return postDate.format('MMMM D, YYYY');
+      return postDate.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
     }
   });
 
