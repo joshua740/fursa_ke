@@ -1,56 +1,151 @@
 ---
 layout: base.njk
 title: Privacy Policy
+description: Privacy policy for Fursa KE - How we handle and protect your information.
 ---
 
 <div class="page-content privacy-policy">
     <h1>Privacy Policy</h1>
 
-    <div class="policy-section">
-        <p class="intro">At Fursa KE, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information.</p>
+    <div class="policy-content">
+        <p class="intro">
+            We respect your privacy and are committed to protecting any information you share with us. Here's what you need to know:
+        </p>
 
-        <section>
-            <h2>What We Collect</h2>
+        <section class="policy-section">
+            <h2>Information We Collect</h2>
             <ul>
-                <li>Your name, email, or phone if you contact us</li>
-                <li>Anonymous browsing data (e.g. pages visited)</li>
+                <li>Contact details when you reach out to us (name, email, phone)</li>
+                <li>Basic usage data to improve our service (pages visited, time spent)</li>
             </ul>
         </section>
 
-        <section>
-            <h2>How We Use It</h2>
+        <section class="policy-section">
+            <h2>How We Use Your Information</h2>
             <ul>
-                <li>Respond to inquiries</li>
-                <li>Send updates (if subscribed)</li>
-                <li>Improve our services</li>
+                <li>To respond to your messages and inquiries</li>
+                <li>To send you updates about new opportunities (if you subscribe)</li>
+                <li>To improve our website and services</li>
             </ul>
         </section>
 
-        <section>
-            <h2>Security</h2>
-            <p>We take reasonable precautions to protect your info.</p>
+        <section class="policy-section">
+            <h2>Information Protection</h2>
+            <ul>
+                <li>We never sell your personal information</li>
+                <li>We use standard security measures to protect your data</li>
+                <li>We only keep your information for as long as necessary</li>
+            </ul>
         </section>
 
-        <section>
-            <h2>Your Choices</h2>
-            <p>You may unsubscribe anytime.</p>
+        <section class="policy-section">
+            <h2>Your Rights</h2>
+            <ul>
+                <li>Unsubscribe from our updates at any time</li>
+                <li>Request to see what information we have about you</li>
+                <li>Ask us to delete your information</li>
+            </ul>
         </section>
 
-        <section>
-            <h2>Changes</h2>
-            <p>We may update this policy as needed.</p>
+        <section class="policy-section contact">
+            <h2>Questions?</h2>
+            <p>Contact us at:</p>
+            <div class="contact-details">
+                <a href="mailto:joshuajay596@gmail.com">joshuajay596@gmail.com</a>
+                <a href="tel:+254714537786">+254 714 537 786</a>
+            </div>
         </section>
 
-        <section class="contact-info">
-            <h2>Contact</h2>
-            <p>
-                <strong>Email:</strong> <a href="mailto:joshuajay596@gmail.com">joshuajay596@gmail.com</a><br>
-                <strong>Phone:</strong> <a href="tel:+254714537786">+254714537786</a>
-            </p>
-        </section>
-
-        <div class="back-to-home">
+        <div class="policy-actions">
             <a href="/" class="button">Back to Homepage</a>
         </div>
     </div>
-</div> 
+</div>
+
+<style>
+.privacy-policy {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.privacy-policy h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.intro {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.policy-section {
+    margin-bottom: 2rem;
+}
+
+.policy-section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.policy-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.policy-section ul li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.policy-section ul li::before {
+    content: "•";
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+}
+
+.contact-details {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.contact-details a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+.policy-actions {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+</style> 

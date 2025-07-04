@@ -1,12 +1,17 @@
 ---
 layout: base.njk
 title: Internships
+pagination:
+  data: collections.internships
+  size: 6
+  reverse: true
+  alias: posts
 ---
 
 <h1>Latest Internship Opportunities</h1>
 
 <div class="opportunities-grid">
-{% for post in collections.internships %}
+{% for post in posts %}
     <article class="opportunity-card">
         <div class="opportunity-meta">
             <span class="category internship">Internship</span>
@@ -15,6 +20,15 @@ title: Internships
         
         <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
         
+        <div class="opportunity-details">
+            {% if post.data.company %}
+            <span class="company">{{ post.data.company }}</span>
+            {% endif %}
+            {% if post.data.location %}
+            <span class="location">{{ post.data.location }}</span>
+            {% endif %}
+        </div>
+
         <div class="opportunity-preview">
             {{ post.data.description }}
         </div>
@@ -23,7 +37,28 @@ title: Internships
             <span class="badge new">NEW</span>
         {% endif %}
 
+        {% if post.data.deadline %}
+        <div class="deadline">
+            Deadline: {{ post.data.deadline }}
+        </div>
+        {% endif %}
+
         <a href="{{ post.url }}" class="read-more">Read More</a>
     </article>
 {% endfor %}
-</div> 
+
+{% if posts.length === 0 %}
+<div class="no-opportunities">
+    <p>No internship opportunities available at the moment. Please check back later.</p>
+</div>
+{% endif %}
+</div>
+
+<nav class="pagination">
+    {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}">Previous</a>
+    {% endif %}
+    {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}">Next</a>
+    {% endif %}
+</nav> 

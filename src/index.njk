@@ -1,13 +1,18 @@
 ---
 layout: base.njk
 title: Latest Opportunities
+description: Find the latest jobs, internships, and scholarships in Kenya. Fursa KE connects you with opportunities from top companies and organizations.
+pagination:
+  data: collections.allPosts
+  size: 6
+  reverse: false
+  alias: posts
 ---
 
 <h1>Latest Opportunities</h1>
 
 <div class="opportunities-grid">
-{% for post in collections.all | reverse %}
-    {% if post.data.category in ['job', 'internship', 'scholarship'] %}
+{% for post in posts %}
     <article class="opportunity-card">
         <div class="opportunity-meta">
             <span class="category {{ post.data.category }}">{{ post.data.category | title }}</span>
@@ -19,6 +24,9 @@ title: Latest Opportunities
         <div class="opportunity-details">
             {% if post.data.company %}
             <span class="company">{{ post.data.company }}</span>
+            {% endif %}
+            {% if post.data.organization %}
+            <span class="organization">{{ post.data.organization }}</span>
             {% endif %}
             {% if post.data.location %}
             <span class="location">{{ post.data.location }}</span>
@@ -33,14 +41,24 @@ title: Latest Opportunities
             <span class="badge new">NEW</span>
         {% endif %}
 
-        <a href="{{ post.url }}" class="read-more">View Details</a>
+        <a href="{{ post.url }}" class="read-more">Read More</a>
     </article>
-    {% endif %}
 {% endfor %}
 
-{% if collections.all.length === 0 %}
+{% if posts.length === 0 %}
 <div class="no-opportunities">
     <p>No opportunities available at the moment. Please check back later.</p>
 </div>
 {% endif %}
-</div> 
+</div>
+
+{% if pagination.href.previous or pagination.href.next %}
+<nav class="pagination">
+    {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}">Previous</a>
+    {% endif %}
+    {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}">Next</a>
+    {% endif %}
+</nav>
+{% endif %} 

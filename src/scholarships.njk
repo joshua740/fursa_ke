@@ -1,12 +1,17 @@
 ---
 layout: base.njk
 title: Scholarships
+pagination:
+  data: collections.scholarships
+  size: 6
+  reverse: true
+  alias: posts
 ---
 
 <h1>Latest Scholarship Opportunities</h1>
 
 <div class="opportunities-grid">
-{% for post in collections.scholarships %}
+{% for post in posts %}
     <article class="opportunity-card">
         <div class="opportunity-meta">
             <span class="category scholarship">Scholarship</span>
@@ -15,6 +20,15 @@ title: Scholarships
         
         <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
         
+        <div class="opportunity-details">
+            {% if post.data.organization %}
+            <span class="organization">{{ post.data.organization }}</span>
+            {% endif %}
+            {% if post.data.level %}
+            <span class="level">{{ post.data.level }}</span>
+            {% endif %}
+        </div>
+
         <div class="opportunity-preview">
             {{ post.data.description }}
         </div>
@@ -23,7 +37,28 @@ title: Scholarships
             <span class="badge new">NEW</span>
         {% endif %}
 
+        {% if post.data.deadline %}
+        <div class="deadline">
+            Deadline: {{ post.data.deadline }}
+        </div>
+        {% endif %}
+
         <a href="{{ post.url }}" class="read-more">Read More</a>
     </article>
 {% endfor %}
-</div> 
+
+{% if posts.length === 0 %}
+<div class="no-opportunities">
+    <p>No scholarship opportunities available at the moment. Please check back later.</p>
+</div>
+{% endif %}
+</div>
+
+<nav class="pagination">
+    {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}">Previous</a>
+    {% endif %}
+    {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}">Next</a>
+    {% endif %}
+</nav> 

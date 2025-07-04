@@ -1,29 +1,219 @@
 ---
 layout: base.njk
 title: About Us
+description: Learn about Fursa KE - Your trusted platform for jobs, internships, and scholarships in Kenya.
 ---
 
-<div class="container">
-    <div class="content-section">
+<div class="about-page">
+    <div class="about-header">
         <h1>About Fursa KE</h1>
-        
-        <p>Fursa KE is a platform dedicated to connecting young Kenyans with valuable opportunities. We believe in making opportunities accessible to all talented individuals across Kenya.</p>
-
-        <h2>What We Do</h2>
-        <p>We aggregate and share various opportunities including:</p>
-        <ul>
-            <li>Job openings from top companies</li>
-            <li>Internship opportunities</li>
-            <li>Scholarships and educational grants</li>
-            <li>Government opportunities</li>
-        </ul>
-
-        <h2>Contact Information</h2>
-        <p>For any inquiries or to share opportunities, please contact us:</p>
-        <ul>
-            <li>Email: <a href="mailto:joshuajay596@gmail.com">joshuajay596@gmail.com</a></li>
-            <li>Phone/WhatsApp: <a href="tel:+254714537786">+254 714 537 786</a></li>
-            <li>Location: Nairobi, Kenya</li>
-        </ul>
+        <p class="tagline">Connecting talented Kenyans with life-changing opportunities</p>
     </div>
-</div> 
+
+    <div class="about-content">
+        <section class="mission-section">
+            <h2>Our Mission</h2>
+            <p>At Fursa KE, we believe every talented individual in Kenya deserves access to great opportunities. We're committed to bridging the gap between talent and opportunity by providing a reliable, up-to-date platform for career growth and educational advancement.</p>
+        </section>
+
+        <section class="values-section">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3>Accessibility</h3>
+                    <p>Making opportunities available to all qualified Kenyans, regardless of their background</p>
+                </div>
+                <div class="value-item">
+                    <h3>Reliability</h3>
+                    <p>Providing verified, up-to-date information from trusted sources</p>
+                </div>
+                <div class="value-item">
+                    <h3>Transparency</h3>
+                    <p>Being clear about opportunities and maintaining open communication</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>Get in Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div>
+                        <h3>Email</h3>
+                        <a href="mailto:joshuajay596@gmail.com">joshuajay596@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div>
+                        <h3>Phone/WhatsApp</h3>
+                        <a href="tel:+254714537786">+254 714 537 786</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div>
+                        <h3>Location</h3>
+                        <p>Nairobi, Kenya</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <a href="/contact" class="button primary">Share an Opportunity</a>
+            <a href="/" class="button secondary">Browse Opportunities</a>
+        </div>
+    </div>
+</div>
+
+<style>
+.about-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about-content section {
+    margin-bottom: 4rem;
+}
+
+.about-content h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.mission-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.value-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.value-item p {
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-item {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.contact-item a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.cta-section {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.button.primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.button.secondary {
+    background: var(--light-gray);
+    color: var(--text-color);
+}
+
+.button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .about-header h1 {
+        font-size: 2rem;
+    }
+
+    .values-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-section {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+</style> 

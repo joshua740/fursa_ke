@@ -1,0 +1,89 @@
+---
+layout: base.njk
+title: Search Results
+---
+
+<div class="content-section">
+    <h1>Search Results</h1>
+    
+    {% if search.query %}
+        <p class="search-info">Showing results for: <strong>{{ search.query }}</strong></p>
+        
+        {% if search.results.length %}
+            <div class="opportunities-grid">
+                {% for post in search.results %}
+                    <article class="opportunity-card">
+                        <div class="opportunity-meta">
+                            <span class="category {{ post.data.category }}">{{ post.data.category | title }}</span>
+                            {% if post.data.isNew %}
+                                <span class="badge new">NEW</span>
+                            {% endif %}
+                            <time datetime="{{ post.date | formatDate('YYYY-MM-DD') }}">{{ post.date | formatDate }}</time>
+                        </div>
+                        
+                        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+                        
+                        <div class="opportunity-details">
+                            {% if post.data.company %}
+                                <span class="company">{{ post.data.company }}</span>
+                            {% endif %}
+                            {% if post.data.location %}
+                                <span class="location">{{ post.data.location }}</span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="opportunity-preview">
+                            {{ post.data.description }}
+                        </div>
+                        
+                        <a href="{{ post.url }}" class="read-more">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-results">No results found for your search. Try different keywords or <a href="/">browse all opportunities</a>.</p>
+        {% endif %}
+    {% else %}
+        <p class="search-prompt">Enter a search term above to find opportunities.</p>
+    {% endif %}
+</div>
+
+<style>
+    .search-info {
+        margin-bottom: 2rem;
+        color: var(--text-color);
+        font-size: 1.1rem;
+    }
+    
+    .search-info strong {
+        color: var(--primary-color);
+    }
+    
+    .no-results {
+        text-align: center;
+        padding: 3rem 0;
+        color: var(--text-color);
+    }
+    
+    .no-results a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .no-results a:hover {
+        text-decoration: underline;
+    }
+    
+    .search-prompt {
+        text-align: center;
+        padding: 3rem 0;
+        color: var(--text-color);
+        font-style: italic;
+    }
+</style> 
