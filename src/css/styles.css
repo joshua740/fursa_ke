@@ -82,11 +82,15 @@ body {
     color: white;
 }
 
-.about-tagline {
+.tagline {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.9);
     margin-top: 0.5rem;
 }
+.about-tagline {
+    color: rgba(255, 255, 255, 0.9);
+}
+
 
 /* Search bar styles */
 .search-bar {
@@ -748,6 +752,8 @@ body {
         justify-content: center;
     }
 }
+
+
 
 /* Content section styles */
 .content-section {
