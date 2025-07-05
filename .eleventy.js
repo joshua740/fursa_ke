@@ -105,56 +105,76 @@ module.exports = function(eleventyConfig) {
       .sort(sortByDate);
   });
 
-  // Collections with category filtering and date sorting
-  eleventyConfig.addCollection("jobs", function(collectionApi) {
+  // Category-specific collections
+  eleventyConfig.addCollection("job", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/opportunities/*.md")
-      .filter(item => {
-        const category = item.data.category || '';
-        return category.toLowerCase() === "job";
-      })
+      .filter(item => item.data.category && item.data.category.toLowerCase() === "job")
       .sort(sortByDate);
   });
 
-  eleventyConfig.addCollection("internships", function(collectionApi) {
+  eleventyConfig.addCollection("internship", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/opportunities/*.md")
-      .filter(item => {
-        const category = item.data.category || '';
-        return category.toLowerCase() === "internship";
-      })
+      .filter(item => item.data.category && item.data.category.toLowerCase() === "internship")
       .sort(sortByDate);
   });
 
-  eleventyConfig.addCollection("scholarships", function(collectionApi) {
+  eleventyConfig.addCollection("scholarship", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/opportunities/*.md")
-      .filter(item => {
-        const category = item.data.category || '';
-        return category.toLowerCase() === "scholarship";
-      })
+      .filter(item => item.data.category && item.data.category.toLowerCase() === "scholarship")
       .sort(sortByDate);
   });
 
-  // Popular posts collection (manually marked as popular)
+  // Popular posts collection (most recent from each category)
   eleventyConfig.addCollection("popular", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/opportunities/*.md")
+    const allPosts = collectionApi.getFilteredByGlob("src/opportunities/*.md");
+    
+    // Get most recent post from each category
+    const categories = ['job', 'internship', 'scholarship'];
+    const popularPosts = [];
+    
+    categories.forEach(category => {
+      const categoryPosts = allPosts
+        .filter(item => item.data.category && item.data.category.toLowerCase() === category)
+        .sort(sortByDate);
+      
+      if (categoryPosts.length > 0) {
+        popularPosts.push(categoryPosts[0]); // Add most recent post from category
+      }
+    });
+    
+    // Add any manually marked popular posts
+    const manualPopular = allPosts
       .filter(item => item.data.popular === true)
-      .sort(sortByDate)
-      .slice(0, 4);
+      .sort(sortByDate);
+    
+    // Combine and remove duplicates
+    const combined = [...popularPosts, ...manualPopular];
+    const uniquePosts = Array.from(new Set(combined));
+    
+    // Return top 4 posts
+    return uniquePosts.slice(0, 4);
   });
 
-  // New posts collection
+  // New posts collection (combines recent posts and manually marked new posts)
   eleventyConfig.addCollection("newPosts", function(collectionApi) {
-    const thirtyDaysAgo = DateTime.now().minus({ days: 30 });
+    const sevenDaysAgo = DateTime.now().minus({ days: 7 });
+    const fourteenDaysAgo = DateTime.now().minus({ days: 14 });
     
     return collectionApi.getFilteredByGlob("src/opportunities/*.md")
       .filter(item => {
-        // Check if manually marked as new
-        if (item.data.isNew === true) return true;
-        
-        // Check if post is less than 30 days old
         const postDate = item.date ? DateTime.fromJSDate(item.date) : null;
-        return postDate && postDate >= thirtyDaysAgo;
+        // Include if:
+        // 1. Manually marked as new OR
+        // 2. Less than 14 days old
+        return (item.data.isNew === true) || (postDate && postDate >= fourteenDaysAgo);
       })
       .sort(sortByDate)
+      .map(post => {
+        // Add isRecent flag for posts less than 7 days old
+        const postDate = post.date ? DateTime.fromJSDate(post.date) : null;
+        post.data.isRecent = postDate && postDate >= sevenDaysAgo;
+        return post;
+      })
       .slice(0, 5);
   });
 

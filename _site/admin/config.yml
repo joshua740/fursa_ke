@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "opportunities"
+    label: "Opportunities"
+    folder: "src/opportunities"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Category", name: "category", widget: "select", options: ["job", "internship", "scholarship"]}
+      - {label: "Company", name: "company", widget: "string", required: false}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Type", name: "type", widget: "string", required: false}
+      - {label: "Deadline", name: "deadline", widget: "string", required: false}
+      - {label: "Link", name: "link", widget: "string", required: false}
+      - {label: "Mark as New?", name: "isNew", widget: "boolean", default: true}
+      - {label: "Short Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post.njk"} 
