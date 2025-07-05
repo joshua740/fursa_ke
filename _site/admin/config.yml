@@ -2,8 +2,13 @@ backend:
   name: git-gateway
   branch: main
 
+# Media settings
 media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
+
+# Site settings
+site_url: https://fursake.netlify.app
+display_url: https://fursake.netlify.app
 
 collections:
   - name: "opportunities"
@@ -21,6 +26,8 @@ collections:
       - {label: "Deadline", name: "deadline", widget: "string", required: false}
       - {label: "Link", name: "link", widget: "string", required: false}
       - {label: "Mark as New?", name: "isNew", widget: "boolean", default: true}
+      - {label: "Featured?", name: "featured", widget: "boolean", default: false}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
       - {label: "Short Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Layout", name: "layout", widget: "hidden", default: "post.njk"} 

@@ -4,11 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager | Fursa KE</title>
+    <!-- Include the Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-    <script src="https://unpkg.com/@decapcms/cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Include Decap CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     
+    <!-- Initialize the CMS -->
     <script>
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
@@ -19,7 +22,9 @@
                 }
             });
         }
+
+        // Initialize Netlify CMS
+        CMS.init();
     </script>
 </body>
 </html> 
-
