@@ -6,12 +6,15 @@ company: Chevening - UK Government
 location: United Kingdom
 type: Full Scholarship
 deadline: 2024-11-01
+link: https://www.chevening.org/scholarship/kenya/
 isNew: true
+featured: true
+thumbnail: /images/uploads/500px-chevening.jpg
+description: Fully-funded scholarships for outstanding Kenyan professionals to
+  pursue a one-year master's degree at any UK university.
+layout: post.njk
 views: 200
 popular: true
-description: Fully-funded scholarships for outstanding Kenyan professionals to pursue a one-year master's degree at any UK university.
-link: https://www.chevening.org/scholarship/kenya/
-layout: post.njk
 ---
 
 # Chevening Scholarships 2024/25 for Kenyan Students
