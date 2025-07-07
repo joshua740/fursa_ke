@@ -279,18 +279,24 @@ body {
 .post-box.compact.horizontal .post-content {
     flex: 1;
     padding: 1rem;
-}
-
-.post-box.compact.horizontal .post-meta {
-    font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .post-box.compact.horizontal h2 {
     font-size: 1rem;
     line-height: 1.4;
     margin-bottom: 0.5rem;
+}
+
+.post-box.compact.horizontal .post-meta {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .post-box.compact.horizontal h2 a {
@@ -316,50 +322,70 @@ body {
 
     .opportunities-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .post-box.compact.horizontal {
-        max-height: 120px;
-    }
-
-    .post-box.compact.horizontal .post-thumbnail {
-        flex: 0 0 100px;
-    }
-
-    .post-box.compact.horizontal .post-content {
+        display: flex;
+        gap: 1rem;
         padding: 0.75rem;
     }
 
+    .post-box.compact.horizontal .post-thumbnail {
+        width: 100px;
+        min-width: 100px;
+        height: 100px;
+    }
+
+    .post-box.compact.horizontal .post-content {
+        flex: 1;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
     .post-box.compact.horizontal h2 {
-        font-size: 0.9rem;
-        margin-bottom: 0.3rem;
+        font-size: 1rem;
+        margin: 0.25rem 0;
+        line-height: 1.4;
     }
 
     .post-box.compact.horizontal .post-meta {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
     }
 }
 
 @media (max-width: 480px) {
     .post-box.compact.horizontal {
-        max-height: 100px;
+        gap: 0.75rem;
     }
 
     .post-box.compact.horizontal .post-thumbnail {
-        flex: 0 0 80px;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
     }
 
     .post-box.compact.horizontal .post-content {
-        padding: 0.5rem;
+        min-width: 0;
     }
 
     .post-box.compact.horizontal h2 {
-        font-size: 0.85rem;
-        margin-bottom: 0.2rem;
-        -webkit-line-clamp: 2;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        font-size: 0.95rem;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    .post-box.compact.horizontal .post-meta {
+        font-size: 0.75rem;
+    }
+
+    .post-box.compact.horizontal .post-meta time {
+        display: block;
+        margin-bottom: 0.25rem;
     }
 }
 
@@ -1536,5 +1562,88 @@ body {
         width: 100%;
         justify-content: center;
         padding: 0.6rem 1rem;
+    }
+}
+
+/* Homepage specific styles */
+.homepage-section .post-box.compact.horizontal {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem;
+}
+
+.homepage-section .post-box.compact.horizontal .post-thumbnail {
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    margin: 0;
+}
+
+.homepage-section .post-box.compact.horizontal .post-content {
+    flex: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.homepage-section .post-box.compact.horizontal h2 {
+    font-size: 1rem;
+    margin: 0.25rem 0;
+    line-height: 1.4;
+}
+
+.homepage-section .post-box.compact.horizontal .post-meta {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .homepage-section .opportunities-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .homepage-section .post-box.compact.horizontal {
+        gap: 0.75rem;
+    }
+
+    .homepage-section .post-box.compact.horizontal .post-thumbnail {
+        width: 90px;
+        min-width: 90px;
+        height: 90px;
+    }
+
+    .homepage-section .post-box.compact.horizontal h2 {
+        font-size: 0.95rem;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+}
+
+@media (max-width: 480px) {
+    .homepage-section .post-box.compact.horizontal .post-thumbnail {
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+    }
+
+    .homepage-section .post-box.compact.horizontal .post-content {
+        min-width: 0;
+    }
+
+    .homepage-section .post-box.compact.horizontal h2 {
+        font-size: 0.9rem;
+    }
+
+    .homepage-section .post-box.compact.horizontal .post-meta {
+        font-size: 0.75rem;
+    }
+
+    .homepage-section .post-box.compact.horizontal .post-meta time {
+        display: block;
+        margin-bottom: 0.25rem;
     }
 } 
