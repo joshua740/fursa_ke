@@ -2,18 +2,14 @@
 layout: base.njk
 title: Fursa KE
 description: Find the latest jobs, internships, and scholarships in Kenya. Fursa KE connects you with opportunities from top companies and organizations.
-pagination:
-  data: collections.allPosts
-  size: 6
-  reverse: true
-  alias: posts
 ---
 
 <section class="homepage-section latest-opportunities">
   <h1>Latest Opportunities</h1>
 
   <div class="opportunities-grid">
-  {% for post in posts %}
+  {% set posts = collections.allPosts | reverse %}
+  {% for post in posts.slice(0,6) %}
       <article class="post-box compact horizontal">
           <div class="post-thumbnail">
               <a href="{{ post.url }}">
@@ -146,15 +142,4 @@ pagination:
       <a href="/scholarships/" class="view-all">View All Scholarships</a>
     </div>
   </div>
-</section>
-
-{% if pagination.href.previous or pagination.href.next %}
-<nav class="pagination">
-    {% if pagination.href.previous %}
-        <a href="{{ pagination.href.previous }}">Previous</a>
-    {% endif %}
-    {% if pagination.href.next %}
-        <a href="{{ pagination.href.next }}">Next</a>
-    {% endif %}
-</nav>
-{% endif %} 
+</section> 
