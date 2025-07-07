@@ -1,10 +1,10 @@
 ---
 layout: base.njk
-title: Latest Opportunities
+title: Fursa KE
 description: Find the latest jobs, internships, and scholarships in Kenya. Fursa KE connects you with opportunities from top companies and organizations.
 pagination:
   data: collections.allPosts
-  size: 8
+  size: 6
   reverse: true
   alias: posts
 ---
@@ -14,7 +14,7 @@ pagination:
 
   <div class="opportunities-grid">
   {% for post in posts %}
-      <article class="post-box compact">
+      <article class="post-box compact horizontal">
           <div class="post-thumbnail">
               <a href="{{ post.url }}">
               {% if post.data.thumbnail %}
@@ -25,13 +25,13 @@ pagination:
               </a>
           </div>
           <div class="post-content">
-              <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-              <div class="post-details">
-                  <time datetime="{{ post.date | date('YYYY-MM-DD') }}">Posted on {{ post.date | date('MMMM D, YYYY') }}</time>
+              <div class="post-meta">
+                  <time datetime="{{ post.date | date('YYYY-MM-DD') }}">{{ post.date | date('MMMM D, YYYY') }}</time>
                   {% if post.data.location %}
                   <span class="location">{{ post.data.location }}</span>
                   {% endif %}
               </div>
+              <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
           </div>
       </article>
   {% endfor %}
@@ -42,13 +42,12 @@ pagination:
   <div class="section jobs">
     <div class="section-header">
       <h2>Latest Jobs</h2>
-      <a href="/jobs/" class="view-more">View More Jobs</a>
     </div>
     <div class="opportunities-grid">
     {% set jobPosts = collections.job %}
     {% for post in jobPosts %}
     {% if loop.index <= 4 %}
-      <article class="post-box compact">
+      <article class="post-box compact horizontal">
           <div class="post-thumbnail">
               <a href="{{ post.url }}">
               {% if post.data.thumbnail %}
@@ -59,30 +58,32 @@ pagination:
               </a>
           </div>
           <div class="post-content">
-              <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-              <div class="post-details">
-                  <time datetime="{{ post.date | date('YYYY-MM-DD') }}">Posted on {{ post.date | date('MMMM D, YYYY') }}</time>
+              <div class="post-meta">
+                  <time datetime="{{ post.date | date('YYYY-MM-DD') }}">{{ post.date | date('MMMM D, YYYY') }}</time>
                   {% if post.data.location %}
                   <span class="location">{{ post.data.location }}</span>
                   {% endif %}
               </div>
+              <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
           </div>
       </article>
     {% endif %}
     {% endfor %}
+    </div>
+    <div class="section-footer">
+      <a href="/jobs/" class="view-all">View All Jobs</a>
     </div>
   </div>
 
   <div class="section internships">
     <div class="section-header">
       <h2>Latest Internships</h2>
-      <a href="/internships/" class="view-more">View More Internships</a>
     </div>
     <div class="opportunities-grid">
     {% set internshipPosts = collections.internship %}
     {% for post in internshipPosts %}
     {% if loop.index <= 4 %}
-      <article class="post-box compact">
+      <article class="post-box compact horizontal">
           <div class="post-thumbnail">
               <a href="{{ post.url }}">
               {% if post.data.thumbnail %}
@@ -93,30 +94,32 @@ pagination:
               </a>
           </div>
           <div class="post-content">
-              <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-              <div class="post-details">
-                  <time datetime="{{ post.date | date('YYYY-MM-DD') }}">Posted on {{ post.date | date('MMMM D, YYYY') }}</time>
+              <div class="post-meta">
+                  <time datetime="{{ post.date | date('YYYY-MM-DD') }}">{{ post.date | date('MMMM D, YYYY') }}</time>
                   {% if post.data.location %}
                   <span class="location">{{ post.data.location }}</span>
                   {% endif %}
               </div>
+              <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
           </div>
       </article>
     {% endif %}
     {% endfor %}
+    </div>
+    <div class="section-footer">
+      <a href="/internships/" class="view-all">View All Internships</a>
     </div>
   </div>
 
   <div class="section scholarships">
     <div class="section-header">
       <h2>Latest Scholarships</h2>
-      <a href="/scholarships/" class="view-more">View More Scholarships</a>
     </div>
     <div class="opportunities-grid">
     {% set scholarshipPosts = collections.scholarship %}
     {% for post in scholarshipPosts %}
     {% if loop.index <= 4 %}
-      <article class="post-box compact">
+      <article class="post-box compact horizontal">
           <div class="post-thumbnail">
               <a href="{{ post.url }}">
               {% if post.data.thumbnail %}
@@ -127,17 +130,20 @@ pagination:
               </a>
           </div>
           <div class="post-content">
-              <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-              <div class="post-details">
-                  <time datetime="{{ post.date | date('YYYY-MM-DD') }}">Posted on {{ post.date | date('MMMM D, YYYY') }}</time>
+              <div class="post-meta">
+                  <time datetime="{{ post.date | date('YYYY-MM-DD') }}">{{ post.date | date('MMMM D, YYYY') }}</time>
                   {% if post.data.location %}
                   <span class="location">{{ post.data.location }}</span>
                   {% endif %}
               </div>
+              <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
           </div>
       </article>
     {% endif %}
     {% endfor %}
+    </div>
+    <div class="section-footer">
+      <a href="/scholarships/" class="view-all">View All Scholarships</a>
     </div>
   </div>
 </section>
