@@ -1568,37 +1568,64 @@ body {
 /* Homepage specific styles */
 .homepage-section .post-box.compact.horizontal {
     display: flex;
+    align-items: flex-start;
     gap: 1rem;
-    align-items: center;
-    padding: 0.75rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
 }
 
 .homepage-section .post-box.compact.horizontal .post-thumbnail {
-    width: 100px;
-    min-width: 100px;
-    height: 100px;
-    margin: 0;
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.homepage-section .post-box.compact.horizontal .post-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .homepage-section .post-box.compact.horizontal .post-content {
     flex: 1;
-    padding: 0;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.homepage-section .post-box.compact.horizontal h2 {
-    font-size: 1rem;
-    margin: 0.25rem 0;
-    line-height: 1.4;
+    padding: 0.25rem 0;
 }
 
 .homepage-section .post-box.compact.horizontal .post-meta {
-    font-size: 0.8rem;
-    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: #666;
 }
 
+.homepage-section .post-box.compact.horizontal h2 {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.homepage-section .post-box.compact.horizontal h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.homepage-section .post-box.compact.horizontal h2 a:hover {
+    color: var(--secondary-color);
+}
+
+/* Tablet adjustments */
 @media (max-width: 768px) {
     .homepage-section .opportunities-grid {
         grid-template-columns: 1fr;
@@ -1606,44 +1633,208 @@ body {
     }
 
     .homepage-section .post-box.compact.horizontal {
+        padding: 0.75rem;
         gap: 0.75rem;
     }
 
     .homepage-section .post-box.compact.horizontal .post-thumbnail {
-        width: 90px;
-        min-width: 90px;
-        height: 90px;
-    }
-
-    .homepage-section .post-box.compact.horizontal h2 {
-        font-size: 0.95rem;
-        white-space: normal;
-        overflow: visible;
-        text-overflow: clip;
-    }
-}
-
-@media (max-width: 480px) {
-    .homepage-section .post-box.compact.horizontal .post-thumbnail {
-        width: 80px;
-        min-width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
     }
 
     .homepage-section .post-box.compact.horizontal .post-content {
+        padding: 0.15rem 0;
+    }
+
+    .homepage-section .post-box.compact.horizontal h2 {
+        font-size: 1rem;
+    }
+
+    .homepage-section .post-box.compact.horizontal .post-meta {
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .homepage-section .post-box.compact.horizontal {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        gap: 0.75rem;
+        min-height: 90px;
+    }
+
+    .homepage-section .post-box.compact.horizontal .post-thumbnail {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+        margin-right: 0;
+    }
+
+    .homepage-section .post-box.compact.horizontal .post-content {
+        flex: 1;
         min-width: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 
     .homepage-section .post-box.compact.horizontal h2 {
         font-size: 0.9rem;
+        line-height: 1.3;
+        margin: 0;
+        display: block;
+        overflow: visible;
+        white-space: normal;
     }
 
     .homepage-section .post-box.compact.horizontal .post-meta {
         font-size: 0.75rem;
+        margin-bottom: 0.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
     }
 
-    .homepage-section .post-box.compact.horizontal .post-meta time {
+    .homepage-section .post-box.compact.horizontal .post-meta time,
+    .homepage-section .post-box.compact.horizontal .post-meta .location {
         display: block;
-        margin-bottom: 0.25rem;
+        width: 100%;
+    }
+}
+
+/* Ensure other sections don't override these styles */
+@media (max-width: 480px) {
+    .homepage-section .section .post-box.compact.horizontal {
+        display: flex;
+        align-items: center;
+    }
+
+    .homepage-section .section .post-box.compact.horizontal .post-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .homepage-section .section .post-box.compact.horizontal h2 {
+        display: block;
+        overflow: visible;
+    }
+}
+
+/* Reset and fix mobile layout for homepage posts */
+@media (max-width: 768px) {
+    .homepage-section .opportunities-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Container fixes */
+    .homepage-section .opportunities-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Post box layout */
+    .homepage-section .post-box.compact.horizontal {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        min-height: unset;
+        align-items: start;
+        background: #fff;
+        margin: 0;
+        border-radius: 6px;
+    }
+
+    /* Thumbnail fixes */
+    .homepage-section .post-box.compact.horizontal .post-thumbnail {
+        width: 80px;
+        height: 80px;
+        margin: 0;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .homepage-section .post-box.compact.horizontal .post-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Content fixes */
+    .homepage-section .post-box.compact.horizontal .post-content {
+        width: 100%;
+        min-width: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    /* Title fixes */
+    .homepage-section .post-box.compact.horizontal h2 {
+        font-size: 0.9rem;
+        line-height: 1.3;
+        margin: 0;
+        color: var(--primary-color);
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .homepage-section .post-box.compact.horizontal h2 a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* Meta information fixes */
+    .homepage-section .post-box.compact.horizontal .post-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        font-size: 0.75rem;
+        color: #666;
+        margin: 0;
+    }
+
+    .homepage-section .post-box.compact.horizontal .post-meta time,
+    .homepage-section .post-box.compact.horizontal .post-meta .location {
+        display: block;
+    }
+
+    /* Apply to all sections */
+    .homepage-section .section .opportunities-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .homepage-section .section .post-box.compact.horizontal {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 0.75rem;
+    }
+}
+
+/* Ensure consistent layout across different sections */
+@media (max-width: 480px) {
+    .homepage-section .latest-opportunities .post-box.compact.horizontal,
+    .homepage-section .section.jobs .post-box.compact.horizontal,
+    .homepage-section .section.internships .post-box.compact.horizontal,
+    .homepage-section .section.scholarships .post-box.compact.horizontal {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 0.75rem;
+        padding: 0.75rem;
     }
 } 
