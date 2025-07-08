@@ -4,12 +4,12 @@ const moment = require("moment");
 module.exports = function(eleventyConfig) {
   // Add site metadata
   eleventyConfig.addGlobalData("metadata", {
-    title: "Fursa KE",
-    url: "https://fursa.ke",
+    title: "Fursa Kenya",
+    url: "https://fursa.co.ke",
     description: "Discover the latest jobs, internships, and scholarships in Kenya.",
     author: {
-      name: "Fursa KE",
-      email: "info@fursa.ke"
+      name: "Fursa Kenya",
+      email: "joshuajay596@gmail.com"
     }
   });
 
