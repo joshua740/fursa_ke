@@ -1,11 +1,14 @@
 ---
-title: "Full Stack Developer at Safaricom"
+title: Full Stack Developer at Safaricom
 date: 2024-03-19
 category: job
-company: "Safaricom"
-location: "Nairobi, Kenya"
-tags: ["opportunity", "job"]
-isNew: true
+company: Safaricom
+location: Nairobi, Kenya
+isNew: false
+featured: false
+tags:
+  - opportunity
+  - job
+description: "hey i love "
 ---
-
-This is a sample job opportunity post created to test pagination. Safaricom is seeking an experienced Full Stack Developer to join their dynamic team. 
+**h﻿ey  this sis the thing i**
