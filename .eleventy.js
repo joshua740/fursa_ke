@@ -5,8 +5,8 @@ module.exports = function(eleventyConfig) {
   // Add site metadata
   eleventyConfig.addGlobalData("metadata", {
     title: "Fursa Kenya",
-    url: "https://fursa.co.ke",
-    description: "Discover the latest jobs, internships, and scholarships in Kenya.",
+    url: "https://fursakenya.co.ke",
+    description: "Discover the latest jobs, internships, and scholarships for young Kenyans.",
     author: {
       name: "Fursa Kenya",
       email: "joshuajay596@gmail.com"
@@ -152,7 +152,7 @@ module.exports = function(eleventyConfig) {
     const uniquePosts = Array.from(new Set(combined));
     
     // Return top 4 posts
-    return uniquePosts.slice(0, 4);
+    return uniquePosts.slice(0, 7);
   });
 
   // New posts collection (combines recent posts and manually marked new posts)
