@@ -1,5 +1,6 @@
 {% extends "base.njk" %}
-
+{# Cache buster for this page #}
+{% set cacheBuster = "?v=" + "now" | date("X") %}
 {% block content %}
 <div class="category-page">
     <h1>{{ title }}</h1>
