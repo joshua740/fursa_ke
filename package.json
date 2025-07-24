@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "luxon": "^3.6.1",
     "moment": "*"
   }

@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Sitemap: https://fursakenya.com/sitemap.xml
+Sitemap: https://fursakenya.com/sitemap-jobs.xml
+Sitemap: https://fursakenya.com/sitemap-internships.xml
+Sitemap: https://fursakenya.com/sitemap-scholarships.xml
+
+# Block admin areas
+Disallow: /admin/
+Disallow: /.netlify/
+Disallow: /node_modules/
+
+# Allow important pages
+Allow: /jobs/
+Allow: /internships/
+Allow: /scholarships/
+Allow: /about/
+Allow: /contact/
+
+# Crawl delay (optional - use only if needed)
+# Crawl-delay: 1
