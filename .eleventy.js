@@ -3,17 +3,6 @@ const moment = require("moment");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
 module.exports = function(eleventyConfig) {
-  
-  // Clear cache settings
-  eleventyConfig.setUseGitIgnore(false);
-  eleventyConfig.setBrowserSyncConfig({
-    files: ["src/opportunities/**/*"]
-  });
-
-  // Add watch target
-  eleventyConfig.addWatchTarget("src/opportunities/");
-
-  
   // Add sitemap plugin
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
@@ -103,27 +92,25 @@ module.exports = function(eleventyConfig) {
     }
   }));
 
-  eleventyConfig.addCollection("allPosts", function(collectionApi) {
+  eleventyConfig.addCollection("allPosts", collectionApi => {
+    return collectionApi.getFilteredByGlob("src/opportunities/*.md").sort(sortByDate);
+  });
+
+  eleventyConfig.addCollection("job", collectionApi => {
     return collectionApi.getFilteredByGlob("src/opportunities/*.md")
-      .filter(item => !!item.template?.inputPath) // Verify file exists
+      .filter(item => item.data.category?.toLowerCase() === "job")
       .sort(sortByDate);
   });
 
-  eleventyConfig.addCollection("job", function(collectionApi) {
+  eleventyConfig.addCollection("internship", collectionApi => {
     return collectionApi.getFilteredByGlob("src/opportunities/*.md")
-      .filter(item => !!item.template?.inputPath && item.data.category?.toLowerCase() === "job")
+      .filter(item => item.data.category?.toLowerCase() === "internship")
       .sort(sortByDate);
   });
 
-  eleventyConfig.addCollection("internship", function(collectionApi) {
+  eleventyConfig.addCollection("scholarship", collectionApi => {
     return collectionApi.getFilteredByGlob("src/opportunities/*.md")
-      .filter(item => !!item.template?.inputPath && item.data.category?.toLowerCase() === "internship")
-      .sort(sortByDate);
-  });
-
-  eleventyConfig.addCollection("scholarship", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/opportunities/*.md")
-      .filter(item => !!item.template?.inputPath && item.data.category?.toLowerCase() === "scholarship")
+      .filter(item => item.data.category?.toLowerCase() === "scholarship")
       .sort(sortByDate);
   });
 
