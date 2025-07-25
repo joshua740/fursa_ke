@@ -19,11 +19,9 @@ layout: post.njk
 ---
 <!--StartFragment-->
 
-**Body**
-
 The Public Service Commission, in collaboration with the Ministry of Lands, Public Works, Housing and Urban Development  State Department for Housing and Urban Development, invites qualified graduates to apply for Cohort 1 of the National Internship Programme. Aimed at supporting the Affordable Housing Programme, this internship offers practical experience, mentorship, and national deployment across housing project sites.
 
-###  Available Internship Positions
+### Available Internship Positions
 
 There are **4,000 internship slots** across **41 professional disciplines**, including:
 
@@ -40,20 +38,20 @@ There are **4,000 internship slots** across **41 professional disciplines**, inc
 * Data Science/AI (40)
 * Legal, Economics, Actuarial, HR, ICT, Finance, Environmental, Valuation, Property Marketing & More...
 
-###  Internship Requirements
+### Internship Requirements
 
 * Bachelor’s Degree or Diploma in a relevant field from a recognized institution
 * Graduated no earlier than 2018
 * Basic computer proficiency
 
-###  Internship Details
+### Internship Details
 
 * **Duration:** 12 months (non-renewable)
 * **Stipend:** Monthly, as per government guidelines
 * **Location:** Nationwide
 * **Certification:** Issued upon successful completion
 
-###  Responsibilities
+### Responsibilities
 
 Interns will:
 
