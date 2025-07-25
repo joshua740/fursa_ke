@@ -68,7 +68,7 @@ body {
 .logo a {
     text-decoration: none;
     color: #ffffff;
-    font-size: 0.9rem;
+    font-size: 1.0rem;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -414,7 +414,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
+    
 }
 
 /* Post Content */
