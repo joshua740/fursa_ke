@@ -2285,3 +2285,22 @@ body {
   box-shadow: none !important;
   background: transparent !important;
 }
+.post-detail {
+    background: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 700px;
+  }
+  
+  .post-detail .post-content {
+    padding: 0;
+  }
+  
+  .post-detail img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
