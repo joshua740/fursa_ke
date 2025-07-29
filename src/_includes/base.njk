@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-KE">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.url == "/" %}{{ title }} - Find Jobs, Internships & Scholarships in Kenya 2025{% else %}{{ title }} | Fursa Kenya - Jobs, Skills & Opportunities for Kenyan Youth{% endif %}</title>
+    
+    <!-- Enhanced Title with better structure -->
+    <title>{% if page.url == "/" %}{{ title }} - Find Jobs, Internships & Scholarships in Kenya 2025{% else %}{{ title }} | Fursa Kenya{% endif %}</title>
     
     <!-- Enhanced Meta Tags -->
     <meta name="description" content="{{ description or 'Find the latest jobs, internships, and scholarships in Kenya 2025. Fursa Kenya connects young Kenyans with opportunities from top companies. Apply today!' }}">
-    <meta name="keywords" content="{% if category %}{{ category }}, {% endif %}jobs in Kenya, internships in Kenya, scholarships Kenya 2025, career opportunities Kenya, youth employment, Nairobi jobs, remote jobs Kenya, graduate opportunities, student jobs">
+    <meta name="keywords" content="{% if category %}{{ category }}, {% endif %}jobs in Kenya, internships in Kenya, scholarships Kenya 2025, career opportunities Kenya, youth employment, Nairobi jobs, remote jobs Kenya, graduate opportunities, student jobs, {% if location %}{{ location }} jobs, {% endif %}{% if company %}{{ company }} careers{% endif %}">
     <meta name="author" content="Fursa Kenya">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     
-    <!-- Geographic targeting -->
+    <!-- Geographic and Language targeting -->
     <meta name="geo.region" content="KE">
     <meta name="geo.placename" content="Kenya">
     <meta name="geo.position" content="-1.2921;36.8219">
     <meta name="ICBM" content="-1.2921, 36.8219">
+    <meta name="language" content="English">
+    <meta name="country" content="Kenya">
     
-    <!-- Enhanced Open Graph -->
+    <!-- Enhanced Open Graph with dynamic content -->
     <meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
-    <meta property="og:url" content="{{ baseUrl }}{{ page.url }}">
-    <meta property="og:title" content="{{ title }} | Fursa Kenya - Jobs & Opportunities">
+    <meta property="og:url" content="{{ site.url or 'https://fursakenya.com' }}{{ page.url }}">
+    <meta property="og:title" content="{{ title }}{% if page.url != '/' %} | Fursa Kenya{% endif %}">
     <meta property="og:description" content="{{ description or 'Find the latest jobs, internships, and scholarships in Kenya. Fursa Kenya connects you with opportunities from top companies and organizations.' }}">
-    <meta property="og:image" content="{{ baseUrl }}/images/og-image.jpg">
+    <meta property="og:image" content="{% if thumbnail %}{{ site.url or 'https://fursakenya.com' }}{{ thumbnail }}{% else %}{{ site.url or 'https://fursakenya.com' }}/images/og-image.jpg{% endif %}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Fursa Kenya">
@@ -32,28 +36,30 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@FursaKenya">
     <meta name="twitter:creator" content="@FursaKenya">
-    <meta name="twitter:url" content="{{ baseUrl }}{{ page.url }}">
-    <meta name="twitter:title" content="{{ title }} | Fursa Kenya">
-    <meta name="twitter:description" content="{{ description or 'Find the latest jobs, internships, and scholarships in Kenya. Fursa Kenya connects you with opportunities from top companies and organizations.' }}">
-    <meta name="twitter:image" content="{{ baseUrl }}/images/og-image.jpg">
+    <meta name="twitter:url" content="{{ site.url or 'https://fursakenya.com' }}{{ page.url }}">
+    <meta name="twitter:title" content="{{ title }}{% if page.url != '/' %} | Fursa Kenya{% endif %}">
+    <meta name="twitter:description" content="{{ description or 'Find the latest jobs, internships, and scholarships in Kenya.' }}">
+    <meta name="twitter:image" content="{% if thumbnail %}{{ site.url or 'https://fursakenya.com' }}{{ thumbnail }}{% else %}{{ site.url or 'https://fursakenya.com' }}/images/og-image.jpg{% endif %}">
     
     <!-- Article specific meta (for job/internship/scholarship pages) -->
     {% if category %}
     <meta property="article:section" content="{{ category }}">
-    <meta property="article:published_time" content="{{ page.date | date('YYYY-MM-DDTHH:mm:ss') }}Z">
-    <meta property="article:modified_time" content="{{ page.date | date('YYYY-MM-DDTHH:mm:ss') }}Z">
+    <meta property="article:published_time" content="{{ date | date('YYYY-MM-DDTHH:mm:ss') }}Z">
+    <meta property="article:modified_time" content="{{ date | date('YYYY-MM-DDTHH:mm:ss') }}Z">
     <meta property="article:author" content="Fursa Kenya">
     <meta property="article:tag" content="{{ category }}">
     <meta property="article:tag" content="Kenya Jobs">
     <meta property="article:tag" content="Youth Employment">
+    {% if company %}<meta property="article:tag" content="{{ company }}">{% endif %}
+    {% if location %}<meta property="article:tag" content="{{ location }}">{% endif %}
     {% endif %}
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="{{ baseUrl }}{{ page.url }}">
+    <link rel="canonical" href="{{ site.url or 'https://fursakenya.com' }}{{ page.url }}">
     
-    <!-- Alternate languages (if you plan to add Swahili) -->
-    <link rel="alternate" hreflang="en-ke" href="{{ baseUrl }}{{ page.url }}">
-    <link rel="alternate" hreflang="x-default" href="{{ baseUrl }}{{ page.url }}">
+    <!-- Alternate languages -->
+    <link rel="alternate" hreflang="en-ke" href="{{ site.url or 'https://fursakenya.com' }}{{ page.url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ site.url or 'https://fursakenya.com' }}{{ page.url }}">
     
     <!-- Enhanced Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
@@ -64,39 +70,53 @@
     <meta name="msapplication-TileColor" content="#0A3D62">
     <meta name="theme-color" content="#0A3D62">
     
-    <!-- Preconnect to external domains -->
+    <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Critical CSS - inline small critical styles here for better performance -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        body { margin: 0; font-family: 'Jost', sans-serif; }
+        .site-header { background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    </style>
+    
+    <!-- Load fonts with optimal performance -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="/css/styles.css">
     
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="Fursa Kenya - Latest Opportunities" href="/feed.xml">
     
-    <!-- JSON-LD Structured Data -->
+    <!-- Enhanced JSON-LD Structured Data -->
+    {% if page.url == "/" %}
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "{% if page.url == '/' %}WebSite{% else %}JobPosting{% endif %}",
-        {% if page.url == "/" %}
+        "@type": "WebSite",
         "name": "Fursa Kenya",
         "description": "Find the latest jobs, internships, and scholarships in Kenya. Fursa Kenya connects young Kenyans with opportunities from top companies.",
-        "url": "{{ baseUrl }}",
+        "url": "{{ site.url or 'https://fursakenya.com' }}",
         "potentialAction": {
             "@type": "SearchAction",
             "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "{{ baseUrl }}/search?q={search_term_string}"
+                "urlTemplate": "{{ site.url or 'https://fursakenya.com' }}/search?q={search_term_string}"
             },
             "query-input": "required name=search_term_string"
         },
         "publisher": {
             "@type": "Organization",
             "name": "Fursa Kenya",
-            "url": "{{ baseUrl }}",
+            "url": "{{ site.url or 'https://fursakenya.com' }}",
             "logo": {
                 "@type": "ImageObject",
-                "url": "{{ baseUrl }}/images/logo.png"
+                "url": "{{ site.url or 'https://fursakenya.com' }}/images/logo.png",
+                "width": 300,
+                "height": 100
             },
             "sameAs": [
                 "https://www.linkedin.com/company/fursa-ke/",
@@ -104,36 +124,62 @@
                 "https://whatsapp.com/channel/0029Vb6QKqV60eBndO4b6o06"
             ]
         }
-        {% else %}
-        "title": "{{ title }}",
+    }
+    </script>
+    {% else %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "{% if category == 'jobs' or category == 'internships' %}JobPosting{% elif category == 'scholarships' %}EducationalOccupationalCredential{% else %}Article{% endif %}",
+        "headline": "{{ title }}",
         "description": "{{ description }}",
-        "url": "{{ baseUrl }}{{ page.url }}",
-        "datePosted": "{{ page.date | date('YYYY-MM-DD') }}",
-        "validThrough": "{{ page.data.deadline | date('YYYY-MM-DD') if page.data.deadline }}",
+        "url": "{{ site.url or 'https://fursakenya.com' }}{{ page.url }}",
+        "datePublished": "{{ date | date('YYYY-MM-DD') }}",
+        "dateModified": "{{ date | date('YYYY-MM-DD') }}",
+        {% if category == 'jobs' or category == 'internships' %}
+        "validThrough": "{{ deadline | date('YYYY-MM-DD') if deadline }}",
         "employmentType": "{% if category == 'internships' %}INTERN{% elif category == 'jobs' %}FULL_TIME{% else %}OTHER{% endif %}",
         "hiringOrganization": {
             "@type": "Organization",
-            "name": "{{ page.data.company or 'Various Companies' }}",
-            "sameAs": "{{ baseUrl }}"
+            "name": "{{ company or 'Various Companies' }}"
         },
         "jobLocation": {
             "@type": "Place",
-            "addressLocality": "{{ page.data.location or 'Kenya' }}",
+            "addressLocality": "{{ location or 'Kenya' }}",
             "addressCountry": "KE"
-        }
+        },
         {% endif %}
+        "author": {
+            "@type": "Organization",
+            "name": "Fursa Kenya"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Fursa Kenya",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ site.url or 'https://fursakenya.com' }}/images/logo.png"
+            }
+        }
     }
     </script>
+    {% endif %}
     
-    <!-- Additional Organization Schema -->
+    <!-- Organization Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Fursa Kenya",
+        "alternateName": "Fursa KE",
         "description": "Kenya's leading platform for youth employment opportunities",
-        "url": "{{ baseUrl }}",
-        "logo": "{{ baseUrl }}/images/logo.png",
+        "url": "{{ site.url or 'https://fursakenya.com' }}",
+        "logo": "{{ site.url or 'https://fursakenya.com' }}/images/logo.png",
+        "foundingDate": "2024",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Kenya"
+        },
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+254714537786",
@@ -158,6 +204,12 @@
     <link rel="preload" href="/css/styles.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" as="style">
     
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Netlify Identity -->
     <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
@@ -173,7 +225,7 @@
                                 <span class="logo-ke">KENYA</span>
                             </h1>
                         </a>
-                        <p class="tagline">Helping Young Kenyans Find Jobs, Internships, and Scholarships</p>
+                        <p class="tagline">Jobs, Internships, and Scholarships For Young Kenyans</p>
                     </div>
 
                     <div class="header-social" aria-label="Social media links">
