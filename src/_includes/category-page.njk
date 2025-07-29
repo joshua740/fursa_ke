@@ -2,47 +2,49 @@
 {% block content %}
 <div class="category-page">
     <h1>{{ title }}</h1>
-    
+         
     <div class="category-listing">
         {% for post in posts %}
         <article class="listing-card compact horizontal">
-            <div class="listing-thumbnail">
-                {% if post.data.thumbnail %}
-                    <img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}" loading="lazy">
-                {% else %}
-                    <img src="/images/default-thumbnail.jpg" alt="Default thumbnail" loading="lazy">
-                {% endif %}
-            </div>
-            <div class="listing-content">
-                <div class="listing-meta">
-                    <time datetime="{{ post.date | date('YYYY-MM-DD') }}">{{ post.date | date('MMMM D, YYYY') }}</time>
-                    {% if post.data.location %}
-                        <span class="location">{{ post.data.location }}</span>
+            <a href="{{ post.url }}" class="card-link" aria-label="Read {{ post.data.title }}">
+                <div class="listing-thumbnail">
+                    {% if post.data.thumbnail %}
+                        <img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}" loading="lazy">
+                    {% else %}
+                        <img src="/images/default-thumbnail.jpg" alt="Default thumbnail" loading="lazy">
                     {% endif %}
                 </div>
-
-                <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-
-                <div class="listing-preview">
-                    {{ post.data.description | truncate(150) }}
+                <div class="listing-content">
+                    <div class="listing-meta">
+                        <time datetime="{{ post.date | date('YYYY-MM-DD') }}">{{ post.date | date('MMMM D, YYYY') }}</time>
+                        {% if post.data.location %}
+                            <span class="location">{{ post.data.location }}</span>
+                        {% endif %}
+                    </div>
+                     
+                    <h2>{{ post.data.title }}</h2>
+                     
+                    <div class="listing-preview">
+                        {{ post.data.description | truncate(150) }}
+                    </div>
+                     
+                    <div class="listing-details">
+                        {% if post.data.company %}
+                            <span class="company">{{ post.data.company }}</span>
+                        {% endif %}
+                        {% if post.data.organization %}
+                            <span class="organization">{{ post.data.organization }}</span>
+                        {% endif %}
+                        {% if post.data.isNew %}
+                            <span class="badge new">NEW</span>
+                        {% endif %}
+                    </div>
                 </div>
-
-                <div class="listing-details">
-                    {% if post.data.company %}
-                        <span class="company">{{ post.data.company }}</span>
-                    {% endif %}
-                    {% if post.data.organization %}
-                        <span class="organization">{{ post.data.organization }}</span>
-                    {% endif %}
-                    {% if post.data.isNew %}
-                        <span class="badge new">NEW</span>
-                    {% endif %}
-                </div>
-            </div>
+            </a>
         </article>
         {% endfor %}
     </div>
-
+     
     {% if pagination.href.previous or pagination.href.next %}
     <nav class="pagination">
         {% if pagination.href.previous %}
@@ -54,4 +56,4 @@
     </nav>
     {% endif %}
 </div>
-{% endblock %} 
+{% endblock %}

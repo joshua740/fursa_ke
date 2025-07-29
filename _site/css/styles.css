@@ -240,79 +240,154 @@ body {
 .opportunities-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Opportunities grid */
+.opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
     margin-top: 1rem;
 }
 
 .post-box.compact.horizontal {
     display: flex;
+    align-items: flex-start;
     transition: var(--transition);
-    margin-bottom: 1rem;
-    overflow: hidden;
-    max-height: 160px;
+    margin-bottom: 1.5rem;
+    /* Remove all card styling */
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible;
+    min-height: auto;
+    max-height: none;
+    gap: 1rem; /* Space between thumbnail and content */
 }
 
 .post-box.compact.horizontal:hover {
-    transform: translateY(-3px); /* More pronounced lift */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Enhanced hover shadow */
+    transform: none; /* Remove card hover effects */
+    box-shadow: none;
 }
 
 .post-box.compact.horizontal .post-thumbnail {
-    flex: 0 0 130px;
+    flex: 0 0 160px; /* Larger thumbnail */
+    height: 120px;
     overflow: hidden;
-    position: relative; /* For better image positioning */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Standalone thumbnail with rounded corners */
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .post-box.compact.horizontal .post-thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center; /* Better image centering */
+    object-position: center;
+    display: block;
+    border-radius: 12px;
     transition: transform 0.3s ease;
-    /* Add subtle filter for better contrast */
-    filter: brightness(0.95) contrast(1.05);
+    filter: contrast(1.02) brightness(1.01) saturate(1.05);
+    /* Enhanced image fitting */
+    image-rendering: -webkit-optimize-contrast;
+    backface-visibility: hidden;
+    /* Force proper dimensions */
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+    max-height: none;
+    /* Ensure no gaps */
+    vertical-align: middle;
+    object-position: center center;
+}
+
+.post-box.compact.horizontal:hover .post-thumbnail {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .post-box.compact.horizontal:hover .post-thumbnail img {
     transform: scale(1.05);
+    filter: contrast(1.05) brightness(1.03) saturate(1.1);
 }
 
 .post-box.compact.horizontal .post-content {
     flex: 1;
-    padding: 1rem;
+    padding: 0; /* Remove padding - content floats freely */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    min-width: 0;
+    background: none; /* No background */
+    margin-top: 0.25rem; /* Slight top alignment with thumbnail */
 }
 
 .post-box.compact.horizontal h2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.4;
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    color: #1a1a1a;
 }
 
 .post-box.compact.horizontal .post-meta {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: #666;
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.75rem 0;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.post-box.compact.horizontal .post-meta time {
+    color: #888;
+    font-weight: 500;
 }
 
 .post-box.compact.horizontal h2 a {
-    color: var(--primary-color);
+    color: inherit;
     text-decoration: none;
-    transition: var(--transition);
+    transition: color 0.2s ease;
 }
 
 .post-box.compact.horizontal h2 a:hover {
-    color: var(--secondary-color);
+    color: var(--primary-color, #007bff);
+}
+
+.post-box.compact.horizontal .post-excerpt {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 @media (max-width: 1024px) {
     .opportunities-grid {
+        gap: 1.25rem;
+    }
+    
+    .post-box.compact.horizontal .post-thumbnail {
+        flex: 0 0 140px;
+        height: 105px;
+    }
+    
+    .post-box.compact.horizontal {
         gap: 0.875rem;
+        margin-bottom: 1.25rem;
     }
 }
 
@@ -320,108 +395,200 @@ body {
     .site-main .container {
         grid-template-columns: 1fr;
     }
-
+    
     .opportunities-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-
+    
     .post-box.compact.horizontal {
-        display: flex;
-        gap: 1rem;
-        padding: 0.75rem;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
     }
-
+    
     .post-box.compact.horizontal .post-thumbnail {
-        width: 100px;
-        min-width: 100px;
-        height: 100px;
-    }
-
-    .post-box.compact.horizontal .post-content {
-        flex: 1;
-        padding: 0;
+        flex: 0 0 120px;
+        height: 90px;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
         display: flex;
-        flex-direction: column;
+        align-items: center;
         justify-content: center;
     }
-
+    
+    .post-box.compact.horizontal .post-thumbnail img {
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        min-width: 100%;
+        min-height: 100%;
+        max-width: none;
+        max-height: none;
+        vertical-align: middle;
+        image-rendering: -webkit-optimize-contrast;
+        backface-visibility: hidden;
+    }
+    
+    .post-box.compact.horizontal .post-content {
+        margin-top: 0;
+    }
+    
     .post-box.compact.horizontal h2 {
         font-size: 1rem;
-        margin: 0.25rem 0;
-        line-height: 1.4;
+        margin: 0 0 0.4rem 0;
+        line-height: 1.3;
     }
-
+    
     .post-box.compact.horizontal .post-meta {
         font-size: 0.8rem;
-        margin-bottom: 0.25rem;
+        margin: 0 0 0.5rem 0;
+        gap: 0.5rem;
+    }
+    
+    .post-box.compact.horizontal .post-excerpt {
+        font-size: 0.85rem;
+        line-height: 1.4;
     }
 }
 
 @media (max-width: 480px) {
     .post-box.compact.horizontal {
-        gap: 0.75rem;
+        gap: 0.6rem;
+        margin-bottom: 1rem;
     }
-
+    
     .post-box.compact.horizontal .post-thumbnail {
-        width: 100px;
-        min-width: 80px;
-        height: 100px;
+        flex: 0 0 100px;
+        height: 75px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
     }
-
-    .post-box.compact.horizontal .post-content {
-        min-width: 0;
+    
+    .post-box.compact.horizontal .post-thumbnail img {
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+        /* Enhanced fitting for small mobile */
+        min-width: 100%;
+        min-height: 100%;
+        max-width: none;
+        max-height: none;
+        vertical-align: middle;
+        image-rendering: -webkit-optimize-contrast;
+        backface-visibility: hidden;
+        /* Slight enhancement for small images */
+        filter: contrast(1.05) brightness(1.02) saturate(1.08);
     }
-
+    
     .post-box.compact.horizontal h2 {
         font-size: 0.95rem;
-        white-space: normal;
-        overflow: visible;
-        text-overflow: clip;
+        line-height: 1.3;
+        margin: 0 0 0.3rem 0;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
     }
-
+    
     .post-box.compact.horizontal .post-meta {
         font-size: 0.75rem;
+        margin: 0 0 0.4rem 0;
+        gap: 0.4rem;
     }
-
-    .post-box.compact.horizontal .post-meta time {
-        display: block;
-        margin-bottom: 0.25rem;
+    
+    .post-box.compact.horizontal .post-excerpt {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 1;
+    }
+    
+    .post-box.compact.horizontal:hover .post-thumbnail {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
 }
 
-/* Post Box Layout */
+/* Base Post Box Layout - Minimal */
 .post-box {
     display: flex;
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    align-items: flex-start;
+    background: none;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    transition: none;
+    gap: 1rem;
 }
 
 .post-box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: none;
+    box-shadow: none;
 }
 
-/* Thumbnail */
+/* Base Thumbnail - Standalone */
 .post-thumbnail {
-    flex: 0 0 100px;
-    height: 100px;
+    flex: 0 0 180px;
+    height: 135px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .post-thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
+    object-position: center center;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    /* Enhanced image fitting for all scenarios */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    /* Ensure complete coverage */
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+    max-height: none;
+    /* Remove any potential spacing */
+    vertical-align: middle;
+    /* Better handling of different aspect ratios */
+    object-fit: cover !important;
 }
 
-/* Post Content */
+.post-box:hover .post-thumbnail {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.post-box:hover .post-thumbnail img {
+    transform: scale(1.05);
+}
+
+/* Post Content - Floating */
 .post-content {
     flex: 1;
-    padding: 1.5rem;
+    padding: 0;
+    background: none;
+    margin-top: 0.5rem;
 }
 
 .post-meta {
@@ -430,13 +597,15 @@ body {
     gap: 1rem;
     margin-bottom: 0.75rem;
     font-size: 0.875rem;
+    color: #666;
 }
 
 .category {
     padding: 0.25rem 0.75rem;
-    border-radius: 4px;
+    border-radius: 20px;
     font-weight: 500;
     text-transform: capitalize;
+    font-size: 0.75rem;
 }
 
 .category.job { background: var(--job-color); }
@@ -447,24 +616,27 @@ body {
     background: var(--accent-color);
     color: white;
     padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .post-box h2 {
-    margin: 0.5rem 0;
+    margin: 0 0 0.5rem 0;
     font-size: 1.25rem;
     line-height: 1.4;
+    color: #1a1a1a;
 }
 
 .post-box h2 a {
-    color: var(--heading-color);
+    color: inherit;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .post-box h2 a:hover {
-    color: var(--accent-color);
+    color: var(--accent-color, #007bff);
 }
 
 .post-details {
@@ -476,8 +648,8 @@ body {
 }
 
 .post-preview {
-    margin-bottom: 1rem;
-    color: var(--text-color);
+    margin: 0;
+    color: #555;
     font-size: 0.9375rem;
     line-height: 1.6;
 }
@@ -487,6 +659,7 @@ body {
     color: var(--accent-color);
     font-weight: 500;
     text-decoration: none;
+    margin-top: 0.5rem;
 }
 
 .read-more:hover {
@@ -515,18 +688,20 @@ body {
 @media (max-width: 640px) {
     .post-box {
         flex-direction: column;
+        gap: 0.75rem;
     }
 
     .post-thumbnail {
-        flex: 0 0 200px;
-        height: 200px;
+        flex: none;
+        width: 100%;
+        height: 180px;
+        margin-bottom: 0.5rem;
     }
 
     .post-content {
-        padding: 1rem;
+        margin-top: 0;
     }
 }
-
 /* Pagination */
 .pagination {
     display: flex;
@@ -1422,7 +1597,6 @@ body {
 .category-page {
     padding: 2rem 0;
 }
-
 .category-page h1 {
     font-size: 2rem;
     color: var(--primary-color);
@@ -1442,11 +1616,8 @@ body {
     border-radius: 8px;
     box-shadow: var(--card-shadow);
     transition: var(--transition);
-    display: flex;
-    flex-direction: row;
-    height: auto;
-    min-height: 180px;
     overflow: hidden;
+    position: relative; /* For clickable overlay */
 }
 
 .listing-card.compact.horizontal:hover {
@@ -1454,17 +1625,43 @@ body {
     box-shadow: var(--hover-shadow);
 }
 
+/* Clickable card link */
+.listing-card .card-link {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    min-height: 180px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.listing-card .card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
 .listing-card.compact.horizontal .listing-thumbnail {
     width: 280px;
     min-width: 280px;
     height: auto;
+    overflow: hidden;
+    position: relative;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .listing-card.compact.horizontal .listing-thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.3s ease;
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .listing-card.compact.horizontal:hover .listing-thumbnail img {
@@ -1491,19 +1688,26 @@ body {
     white-space: nowrap;
 }
 
+.listing-card.compact.horizontal .listing-meta .location {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Updated h2 - no longer has link */
 .listing-card.compact.horizontal h2 {
     font-size: 1.25rem;
     line-height: 1.4;
     margin: 0;
-}
-
-.listing-card.compact.horizontal h2 a {
     color: var(--primary-color);
-    text-decoration: none;
     transition: var(--transition);
 }
 
-.listing-card.compact.horizontal h2 a:hover {
+/* Hover effect on title when card is hovered */
+.listing-card.compact.horizontal:hover h2 {
     color: var(--secondary-color);
 }
 
@@ -1534,14 +1738,45 @@ body {
 }
 
 @media (max-width: 768px) {
-    .listing-card.compact.horizontal {
+    /* Mobile - card becomes vertical */
+    .listing-card .card-link {
         flex-direction: column;
         min-height: auto;
     }
 
     .listing-card.compact.horizontal .listing-thumbnail {
         width: 100%;
-        height: 200px;
+        height: 180px; /* Increased height for better visibility */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Better fallback */
+        position: relative;
+    }
+
+    .listing-card.compact.horizontal .listing-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        /* Better image handling for mobile */
+        image-rendering: -webkit-optimize-contrast;
+        backface-visibility: hidden; /* Improves performance */
+        /* Ensure proper scaling */
+        max-width: none;
+        max-height: none;
+        min-width: 100%;
+        min-height: 100%;
+        /* Slight enhancement for better visibility */
+        filter: contrast(1.05) brightness(1.02) saturate(1.1);
+    }
+
+    /* Enhanced hover for mobile */
+    .listing-card.compact.horizontal:hover .listing-thumbnail img {
+        transform: scale(1.03);
+        filter: contrast(1.08) brightness(1.05) saturate(1.15);
     }
 
     .listing-card.compact.horizontal .listing-content {
@@ -1559,7 +1794,61 @@ body {
 
 @media (max-width: 480px) {
     .listing-card.compact.horizontal .listing-thumbnail {
-        height: 180px;
+        height: 160px; /* Increased from 140px */
+        border-radius: 8px 8px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* More attractive fallback */
+        position: relative;
+    }
+
+    .listing-card.compact.horizontal .listing-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        /* Enhanced mobile image handling */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+        backface-visibility: hidden;
+        /* Prevent any spacing issues */
+        vertical-align: top;
+        /* Better scaling control */
+        max-width: none;
+        max-height: none;
+        min-width: 100%;
+        min-height: 100%;
+        /* Subtle enhancement for small screens */
+        filter: contrast(1.08) brightness(1.03) saturate(1.12);
+        /* Smooth transition */
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Better hover effect for small mobile */
+    .listing-card.compact.horizontal:hover .listing-thumbnail img {
+        transform: scale(1.04);
+        filter: contrast(1.12) brightness(1.06) saturate(1.2);
+    }
+
+    /* Add subtle loading shimmer effect */
+    .listing-card.compact.horizontal .listing-thumbnail::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.6s;
+        z-index: 1;
+    }
+
+    .listing-card.compact.horizontal .listing-thumbnail:hover::before {
+        transform: translateX(100%);
     }
 
     .listing-card.compact.horizontal .listing-content {
@@ -1572,7 +1861,6 @@ body {
         gap: 0.5rem;
     }
 }
-
 .section-footer {
     display: flex;
     justify-content: center;
