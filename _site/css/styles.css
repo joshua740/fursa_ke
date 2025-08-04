@@ -24,7 +24,7 @@
 
 body {
     font-family: 'jost', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--text-color);
     background-color: #f8f9fa;
     min-height: 100vh;
@@ -50,7 +50,7 @@ body {
 
 .header-main {
     background: var(--primary-color);
-    padding: 1.5rem 0;
+    padding: 1.2rem 0;
 }
 
 .header-content {
@@ -68,7 +68,7 @@ body {
 .logo a {
     text-decoration: none;
     color: #ffffff;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -236,56 +236,57 @@ body {
     transform: translateY(-1px);
 }
 
-/* Opportunities grid */
 .opportunities-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-/* Opportunities grid */
-.opportunities-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
+/* ===== Base Post Box Styles ===== */
 .post-box.compact.horizontal {
     display: flex;
-    align-items: flex-start;
-    transition: var(--transition);
-    margin-bottom: 1.5rem;
-    /* Remove all card styling */
-    background: none;
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-    overflow: visible;
-    min-height: auto;
-    max-height: none;
-    gap: 1rem; /* Space between thumbnail and content */
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    height: 100%;
 }
 
 .post-box.compact.horizontal:hover {
-    transform: none; /* Remove card hover effects */
-    box-shadow: none;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.05);
 }
 
+/* ===== Thumbnail Styles ===== */
 .post-box.compact.horizontal .post-thumbnail {
-    flex: 0 0 160px; /* Larger thumbnail */
+    flex: 0 0 160px;
+    width: 160px;
     height: 120px;
+    border-radius: 8px;
     overflow: hidden;
     position: relative;
+    background: #f8f9fa;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Standalone thumbnail with rounded corners */
-    border-radius: 12px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+}
+
+.post-box.compact.horizontal .post-thumbnail::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.01) 100%);
+    z-index: 1;
 }
 
 .post-box.compact.horizontal .post-thumbnail img {
@@ -294,64 +295,28 @@ body {
     object-fit: cover;
     object-position: center;
     display: block;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-    filter: contrast(1.02) brightness(1.01) saturate(1.05);
-    /* Enhanced image fitting */
-    image-rendering: -webkit-optimize-contrast;
-    backface-visibility: hidden;
-    /* Force proper dimensions */
-    min-width: 100%;
-    min-height: 100%;
-    max-width: none;
-    max-height: none;
-    /* Ensure no gaps */
-    vertical-align: middle;
-    object-position: center center;
-}
-
-.post-box.compact.horizontal:hover .post-thumbnail {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease;
+    will-change: transform;
 }
 
 .post-box.compact.horizontal:hover .post-thumbnail img {
-    transform: scale(1.05);
-    filter: contrast(1.05) brightness(1.03) saturate(1.1);
+    transform: scale(1.03);
 }
 
+/* ===== Content Area Styles ===== */
 .post-box.compact.horizontal .post-content {
     flex: 1;
-    padding: 0; /* Remove padding - content floats freely */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     min-width: 0;
-    background: none; /* No background */
-    margin-top: 0.25rem; /* Slight top alignment with thumbnail */
+    padding-right: 0.5rem;
 }
 
 .post-box.compact.horizontal h2 {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.4;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.75rem 0;
     font-weight: 600;
     color: #1a1a1a;
-}
-
-.post-box.compact.horizontal .post-meta {
-    font-size: 0.85rem;
-    color: #666;
-    margin: 0 0 0.75rem 0;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-}
-
-.post-box.compact.horizontal .post-meta time {
-    color: #888;
-    font-weight: 500;
+    letter-spacing: -0.01em;
 }
 
 .post-box.compact.horizontal h2 a {
@@ -361,228 +326,151 @@ body {
 }
 
 .post-box.compact.horizontal h2 a:hover {
-    color: var(--primary-color, #007bff);
+    color: var(--primary-color, #2563eb);
+}
+
+.post-box.compact.horizontal .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.post-box.compact.horizontal .post-meta time {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 .post-box.compact.horizontal .post-excerpt {
     font-size: 0.9rem;
-    color: #555;
     line-height: 1.5;
+    color: #475569;
     margin: 0;
-    overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
+/* ===== Responsive Breakpoints ===== */
+
+/* Medium Screens (Tablets) */
 @media (max-width: 1024px) {
     .opportunities-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .post-box.compact.horizontal {
+        padding: 1.25rem;
         gap: 1.25rem;
     }
     
     .post-box.compact.horizontal .post-thumbnail {
         flex: 0 0 140px;
+        width: 140px;
         height: 105px;
     }
     
-    .post-box.compact.horizontal {
-        gap: 0.875rem;
-        margin-bottom: 1.25rem;
+    .post-box.compact.horizontal h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
     }
 }
 
+/* Small Screens (Large Phones) */
 @media (max-width: 768px) {
-    .site-main .container {
-        grid-template-columns: 1fr;
-    }
-    
     .opportunities-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
     }
     
     .post-box.compact.horizontal {
-        align-items: flex-start;
-        gap: 0.75rem;
-        margin-bottom: 1rem;
+        padding: 1.25rem;
+        gap: 1.25rem;
     }
     
     .post-box.compact.horizontal .post-thumbnail {
         flex: 0 0 120px;
+        width: 120px;
         height: 90px;
-        border-radius: 10px;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-        background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .post-box.compact.horizontal .post-thumbnail img {
-        border-radius: 10px;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
-        min-width: 100%;
-        min-height: 100%;
-        max-width: none;
-        max-height: none;
-        vertical-align: middle;
-        image-rendering: -webkit-optimize-contrast;
-        backface-visibility: hidden;
-    }
-    
-    .post-box.compact.horizontal .post-content {
-        margin-top: 0;
     }
     
     .post-box.compact.horizontal h2 {
-        font-size: 1rem;
-        margin: 0 0 0.4rem 0;
-        line-height: 1.3;
+        font-size: 1.05rem;
+        margin-bottom: 0.5rem;
     }
     
     .post-box.compact.horizontal .post-meta {
         font-size: 0.8rem;
-        margin: 0 0 0.5rem 0;
-        gap: 0.5rem;
+        margin-bottom: 0.5rem;
     }
     
     .post-box.compact.horizontal .post-excerpt {
         font-size: 0.85rem;
-        line-height: 1.4;
     }
 }
 
+/* Extra Small Screens (Phones) */
 @media (max-width: 480px) {
     .post-box.compact.horizontal {
-        gap: 0.6rem;
-        margin-bottom: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem;
+        gap: 1rem;
     }
     
     .post-box.compact.horizontal .post-thumbnail {
-        flex: 0 0 100px;
-        height: 75px;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-        background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+        flex: 0 0 100%;
+        width: 100%;
+        height: 160px;
+        border-radius: 8px 8px 0 0;
+        margin: -1.25rem -1.25rem 0 -1.25rem;
     }
     
-    .post-box.compact.horizontal .post-thumbnail img {
-        border-radius: 8px;
+    .post-box.compact.horizontal .post-content {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
-        display: block;
-        /* Enhanced fitting for small mobile */
-        min-width: 100%;
-        min-height: 100%;
-        max-width: none;
-        max-height: none;
-        vertical-align: middle;
-        image-rendering: -webkit-optimize-contrast;
-        backface-visibility: hidden;
-        /* Slight enhancement for small images */
-        filter: contrast(1.05) brightness(1.02) saturate(1.08);
+        padding-right: 0;
     }
     
     .post-box.compact.horizontal h2 {
-        font-size: 0.95rem;
-        line-height: 1.3;
-        margin: 0 0 0.3rem 0;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
     }
     
     .post-box.compact.horizontal .post-meta {
-        font-size: 0.75rem;
-        margin: 0 0 0.4rem 0;
-        gap: 0.4rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .post-box.compact.horizontal .post-excerpt {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 3;
+    }
+}
+
+/* Very Small Screens (Small Phones) */
+@media (max-width: 360px) {
+    .post-box.compact.horizontal {
+        padding: 1rem;
+    }
+    
+    .post-box.compact.horizontal .post-thumbnail {
+        height: 140px;
+        margin: -1rem -1rem 0 -1rem;
+    }
+    
+    .post-box.compact.horizontal h2 {
+        font-size: 1rem;
     }
     
     .post-box.compact.horizontal .post-excerpt {
         font-size: 0.8rem;
-        -webkit-line-clamp: 1;
-    }
-    
-    .post-box.compact.horizontal:hover .post-thumbnail {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
 }
-
-/* Base Post Box Layout - Minimal */
-.post-box {
-    display: flex;
-    align-items: flex-start;
-    background: none;
-    border: none;
-    border-radius: 0;
-    overflow: visible;
-    transition: none;
-    gap: 1rem;
-}
-
-.post-box:hover {
-    transform: none;
-    box-shadow: none;
-}
-
-/* Base Thumbnail - Standalone */
-.post-thumbnail {
-    flex: 0 0 180px;
-    height: 135px;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.post-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    display: block;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-    /* Enhanced image fitting for all scenarios */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    backface-visibility: hidden;
-    /* Ensure complete coverage */
-    min-width: 100%;
-    min-height: 100%;
-    max-width: none;
-    max-height: none;
-    /* Remove any potential spacing */
-    vertical-align: middle;
-    /* Better handling of different aspect ratios */
-    object-fit: cover !important;
-}
-
-.post-box:hover .post-thumbnail {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.post-box:hover .post-thumbnail img {
-    transform: scale(1.05);
-}
-
 /* Post Content - Floating */
 .post-content {
     flex: 1;
