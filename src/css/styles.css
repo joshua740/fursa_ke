@@ -2479,3 +2479,86 @@ body {
     box-shadow: none !important;
     padding: 0 !important;
   }
+
+
+  /* ===== Mobile-Specific Fixes ===== */
+@media (max-width: 480px) {
+    .post-box.compact.horizontal .post-thumbnail {
+        /* Remove all flex spacing behavior */
+        display: block;
+        /* Full width handling */
+        width: 100% !important;
+        height: 180px;
+        flex: none;
+        /* Reset positioning */
+        position: relative;
+        /* Remove any potential margins */
+        margin: -1.25rem -1.25rem 1rem -1.25rem;
+        border-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
+    .post-box.compact.horizontal .post-thumbnail img {
+        /* Force absolute coverage */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* Ensure complete coverage */
+        min-width: 100%;
+        min-height: 100%;
+        /* Remove any potential transforms */
+        transform: none !important;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 360px) {
+    .post-box.compact.horizontal .post-thumbnail {
+        height: 150px;
+    }
+}
+
+/* ===== Thumbnail Image Fix ===== */
+.post-box.compact.horizontal .post-thumbnail {
+    flex: 0 0 160px;
+    width: 160px;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Prevent any spacing issues */
+    line-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.post-box.compact.horizontal .post-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    /* Remove any default spacing */
+    margin: 0;
+    padding: 0;
+    /* Force absolute coverage */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Ensure no gaps */
+    min-width: 100%;
+    min-height: 100%;
+    /* Remove any default image styling */
+    border: none;
+    outline: none;
+    /* Smooth rendering */
+    image-rendering: -webkit-optimize-contrast;
+    backface-visibility: hidden;
+}
