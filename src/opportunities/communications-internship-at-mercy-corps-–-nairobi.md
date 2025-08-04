@@ -7,14 +7,14 @@ location: Nairobi, Kenya
 link: https://recruiting2.ultipro.com/MER1024MERCY/JobBoard/37f6929f-9b61-486b-94c1-2ca23179877f/Account/Register?redirectUrl=%2FMER1024MERCY%2FJobBoard%2F37f6929f-9b61-486b-94c1-2ca23179877f%2FOpportunityApply%3FopportunityId%3Dfc93c4a3-1521-42e1-b5f6-014b8166646e&cancelUrl=http%3A%2F%2Frecruiting2.ultipro.com%2FMER1024MERCY%2FJobBoard%2F37f6929f-9b61-486b-94c1-2ca23179877f%2FOpportunityDetail%3FopportunityId%3Dfc93c4a3-1521-42e1-b5f6-014b8166646e
 isNew: true
 featured: false
-thumbnail: ""
+thumbnail: https://openedcareer.com/wp-content/uploads/2025/07/mercy-corps-Opened-career-.png
 description: Mercy Corps is offering a Communications Internship at its AgriFin
   Program Office in Nairobi.
 layout: post.njk
 ---
 <!--StartFragment-->
 
-![](https://openedcareer.com/wp-content/uploads/2025/07/mercy-corps-Opened-career-.png)
+![]()
 
 **Join Mercy Corps as a Communications Intern – Nairobi Office**
 
