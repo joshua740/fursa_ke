@@ -14,6 +14,8 @@ layout: post.njk
 ---
 <!--StartFragment-->
 
+![](https://openedcareer.com/wp-content/uploads/2025/07/mercy-corps-Opened-career-.png)
+
 **Join Mercy Corps as a Communications Intern – Nairobi Office**
 
 **About Mercy Corps**\
