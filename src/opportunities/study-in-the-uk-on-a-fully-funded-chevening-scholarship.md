@@ -3,7 +3,7 @@ title: Study in the UK on a Fully Funded Chevening Scholarship
 date: 2025-08-07T16:32:59.633Z
 category: scholarship
 location: United Kingdom
-deadline: 07/08/2025
+deadline: ""
 link: https://www.chevening.org/apply/
 isNew: true
 featured: true
@@ -14,6 +14,8 @@ description: Apply for the prestigious, fully funded Chevening Scholarship to
 layout: post.njk
 ---
 <!--StartFragment-->
+
+![](https://primeprogressng.com/wp-content/uploads/2025/08/Chevening-Scholarship-copy-1536x1024.webp " Chevening Scholarship")
 
 The Chevening Scholarship is a prestigious, fully funded opportunity for outstanding individuals from Chevening-eligible countries to pursue a one-year master’s degree at any UK university. More than just financial support, Chevening offers a life-changing academic and cultural experience, helping you grow personally and professionally while connecting with future leaders from around the world.
 
@@ -38,5 +40,7 @@ By studying in the UK, you'll gain access to world-class education, rich history
 * Apply to three eligible UK courses and secure at least one unconditional offer
 
 Chevening is looking for future leaders people with a strong vision for the future and a passion for making a positive impact in their home countries. 
+
+**D﻿ateline: 07/08/2025**
 
 <!--EndFragment-->
