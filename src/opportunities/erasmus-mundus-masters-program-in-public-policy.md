@@ -15,7 +15,7 @@ layout: post.njk
 About the Program
 The Mundus MAPP (Erasmus Mundus Masters Program in Public Policy) is an internationally recognized, fully accredited joint master’s program delivered by a consortium of leading universities:
 
-1. 1. Central European University
+ 1. Central European University
    2. International Institute of Social Studies
    3. Institut Barcelona d’Estudis Internacionals
    4. University of York
@@ -41,8 +41,7 @@ Ranking Criteria (Maximum 100 Points):
 
 Equal opportunity measures are applied to encourage participation from disadvantaged groups.
 
-* Entry Requirements:
-  Applicants must meet the following requirements:
+* Applicants must meet the following requirements:
 * A first degree equivalent to 180 credits or 180 ECTS from an internationally recognized university or college.
 * Minimum of two years of professional or practitioner experience in a relevant field (including employment, internships, or voluntary work).
 * English language proficiency equivalent to English B/English 6 at upper secondary level, or internationally recognized test scores (TOEFL, IELTS, etc.).
