@@ -12,13 +12,15 @@ description: A prestigious Erasmus Mundus-funded Joint MA in Public Policy
   Europe.
 layout: post.njk
 ---
+![]()
+
 About the Program
 The Mundus MAPP (Erasmus Mundus Masters Program in Public Policy) is an internationally recognized, fully accredited joint master’s program delivered by a consortium of leading universities:
 
- 1. Central European University
-   2. International Institute of Social Studies
-   3. Institut Barcelona d’Estudis Internacionals
-   4. University of York
+1. Central European University
+2. International Institute of Social Studies
+3. Institut Barcelona d’Estudis Internacionals
+4. University of York
 
 This highly competitive two-year program combines rigorous academic training, practical policy experience, and a global learning environment with students from over 78 countries. Graduates receive degrees accredited in multiple countries (4+1), preparing them for leadership roles in public policy, governance, and international organizations.
 
