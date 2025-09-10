@@ -12,8 +12,6 @@ description: A prestigious Erasmus Mundus-funded Joint MA in Public Policy
   Europe.
 layout: post.njk
 ---
-!
-
 
 The Mundus MAPP (Erasmus Mundus Masters Program in Public Policy) is an internationally recognized, fully accredited joint master’s program delivered by a consortium of leading universities:
 
